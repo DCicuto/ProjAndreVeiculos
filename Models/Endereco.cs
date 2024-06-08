@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace Models
 {
     public class Endereco
     {
-
+        
         public int Id { get; set; }
         public string Logradouro { get; set; }
         public string CEP { get; set; }
