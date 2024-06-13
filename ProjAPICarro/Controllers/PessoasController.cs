@@ -23,24 +23,24 @@ namespace ProjAPICarro.Controllers
 
         // GET: api/Pessoas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoa()
+        public async Task<ActionResult<IEnumerable<Pessoa>>> GetPessoas()
         {
-          if (_context.Pessoa == null)
+          if (_context.Pessoas == null)
           {
               return NotFound();
           }
-            return await _context.Pessoa.ToListAsync();
+            return await _context.Pessoas.ToListAsync();
         }
 
         // GET: api/Pessoas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Pessoa>> GetPessoa(string id)
         {
-          if (_context.Pessoa == null)
+          if (_context.Pessoas == null)
           {
               return NotFound();
           }
-            var pessoa = await _context.Pessoa.FindAsync(id);
+            var pessoa = await _context.Pessoas.FindAsync(id);
 
             if (pessoa == null)
             {
@@ -86,11 +86,11 @@ namespace ProjAPICarro.Controllers
         [HttpPost]
         public async Task<ActionResult<Pessoa>> PostPessoa(Pessoa pessoa)
         {
-          if (_context.Pessoa == null)
+          if (_context.Pessoas == null)
           {
-              return Problem("Entity set 'ProjAPICarroContext.Pessoa'  is null.");
+              return Problem("Entity set 'ProjAPICarroContext.Pessoas'  is null.");
           }
-            _context.Pessoa.Add(pessoa);
+            _context.Pessoas.Add(pessoa);
             try
             {
                 await _context.SaveChangesAsync();
@@ -114,17 +114,17 @@ namespace ProjAPICarro.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePessoa(string id)
         {
-            if (_context.Pessoa == null)
+            if (_context.Pessoas == null)
             {
                 return NotFound();
             }
-            var pessoa = await _context.Pessoa.FindAsync(id);
+            var pessoa = await _context.Pessoas.FindAsync(id);
             if (pessoa == null)
             {
                 return NotFound();
             }
 
-            _context.Pessoa.Remove(pessoa);
+            _context.Pessoas.Remove(pessoa);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -132,7 +132,7 @@ namespace ProjAPICarro.Controllers
 
         private bool PessoaExists(string id)
         {
-            return (_context.Pessoa?.Any(e => e.Documento == id)).GetValueOrDefault();
+            return (_context.Pessoas?.Any(e => e.Documento == id)).GetValueOrDefault();
         }
     }
 }

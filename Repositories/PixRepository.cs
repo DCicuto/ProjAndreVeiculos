@@ -1,27 +1,32 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Models;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Repositories
+namespace Models
 {
-    public class BoletoRepository
+    public class PixRepository
     {
         private string StrConn = "Server=127.0.0.1; Database=ProjCARROS; User Id=sa; Password=SqlServer2019!; TrustServerCertificate=True;";
         SqlConnection conn;
 
-        public BoletoRepository()
+        public PixRepository()
         {
             conn = new SqlConnection(StrConn);
         }
 
-        public void InserirBoleto(Boleto boleto)
+        public void InserirPix(Pix pix)
         {
             conn.Open();
-            string query = "INSERT INTO Table_Boleto (Id, Numero, DataVencimento) values (@Id, @Numero, @DataVencimento)";
-            conn.Execute(query, boleto);
+            string query = "INSERT INTO Table_Pix (Id, IdTipo, ChavePix) values (@Id, @IdTipo, @ChavePix)";
+            conn.Execute(query, pix);
             conn.Close();
         }
-
     }
 }
+    
+

@@ -1,9 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
-using Controller;
+using static Microsoft.AspNetCore.Mvc.Controller;
 using Models;
 using System.ComponentModel.DataAnnotations;
+using ProjAPICarro.Controllers;
 
 Console.WriteLine("Incio do processamento");
 
@@ -17,5 +18,5 @@ Boleto boleto = new Boleto
 Console.WriteLine(boleto.DataVencimento.ToString("dd/MM/yyyy"));
 
 
-Console.WriteLine(boleto);
-Console.WriteLine(new BoletoController().Insert(boleto) ? "Registro Inserido!" : "Erro ao inserir!");
+//Console.WriteLine(boleto);
+//Console.WriteLine(new BoletoesController().Insert(boleto) ? "Registro Inserido!" : "Erro ao inserir!");

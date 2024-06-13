@@ -1,28 +1,21 @@
 ﻿using Models;
+using NuGet.Protocol.Core.Types;
 using Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Services
 {
     public class BoletoService
     {
-        private BoletoRepository _repository;
+        private BoletoRepository repository;
 
         public BoletoService()
         {
-            _repository = new BoletoRepository();
+            repository = new BoletoRepository();
         }
-
-        public bool Insert(Boleto boleto)
+        public void InserirBoleto(Boleto boleto)
         {
-            Console.WriteLine("Camada Service");//Adcionado para teste
-            return _repository.Insert(boleto);
+            repository.InserirBoleto(boleto);
         }
 
     }

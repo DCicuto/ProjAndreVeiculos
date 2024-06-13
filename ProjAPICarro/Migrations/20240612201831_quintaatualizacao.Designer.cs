@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjAPICarro.Data;
 
@@ -11,9 +12,10 @@ using ProjAPICarro.Data;
 namespace ProjAPICarro.Migrations
 {
     [DbContext(typeof(ProjAPICarroContext))]
-    partial class ProjAPICarroContextModelSnapshot : ModelSnapshot
+    [Migration("20240612201831_quintaatualizacao")]
+    partial class quintaatualizacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +40,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Boleto", (string)null);
+                    b.ToTable("Boleto");
                 });
 
             modelBuilder.Entity("Models.Cargo", b =>
@@ -55,7 +57,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cargo", (string)null);
+                    b.ToTable("Cargo");
                 });
 
             modelBuilder.Entity("Models.Carro", b =>
@@ -82,7 +84,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Placa");
 
-                    b.ToTable("Carro", (string)null);
+                    b.ToTable("Carro");
                 });
 
             modelBuilder.Entity("Models.CarroServico", b =>
@@ -105,7 +107,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("ServicoId");
 
-                    b.ToTable("CarroServico", (string)null);
+                    b.ToTable("CarroServico");
                 });
 
             modelBuilder.Entity("Models.Cartao", b =>
@@ -127,7 +129,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("NumeroCartao");
 
-                    b.ToTable("Cartao", (string)null);
+                    b.ToTable("Cartao");
                 });
 
             modelBuilder.Entity("Models.Compra", b =>
@@ -151,7 +153,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("CarroPlaca");
 
-                    b.ToTable("Compra", (string)null);
+                    b.ToTable("Compra");
                 });
 
             modelBuilder.Entity("Models.Endereco", b =>
@@ -195,7 +197,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Endereco", (string)null);
+                    b.ToTable("Endereco");
                 });
 
             modelBuilder.Entity("Models.Pagamento", b =>
@@ -226,7 +228,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("PixId");
 
-                    b.ToTable("Pagamento", (string)null);
+                    b.ToTable("Pagamento");
                 });
 
             modelBuilder.Entity("Models.Pessoa", b =>
@@ -256,7 +258,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("EnderecoId");
 
-                    b.ToTable("Pessoas");
+                    b.ToTable("Pessoas", (string)null);
                 });
 
             modelBuilder.Entity("Models.Pix", b =>
@@ -278,7 +280,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("TipoId");
 
-                    b.ToTable("Pix", (string)null);
+                    b.ToTable("Pix");
                 });
 
             modelBuilder.Entity("Models.Servico", b =>
@@ -295,7 +297,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servico", (string)null);
+                    b.ToTable("Servico");
                 });
 
             modelBuilder.Entity("Models.TipoPix", b =>
@@ -312,7 +314,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoPix", (string)null);
+                    b.ToTable("TipoPix");
                 });
 
             modelBuilder.Entity("Models.Venda", b =>
@@ -351,7 +353,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("PagamentoId");
 
-                    b.ToTable("Venda", (string)null);
+                    b.ToTable("Venda");
                 });
 
             modelBuilder.Entity("Models.Cliente", b =>
@@ -379,7 +381,7 @@ namespace ProjAPICarro.Migrations
 
                     b.HasIndex("CargoId");
 
-                    b.ToTable("Funcionarios", (string)null);
+                    b.ToTable("Funcionários", (string)null);
                 });
 
             modelBuilder.Entity("Models.CarroServico", b =>
